@@ -370,7 +370,7 @@
 	<div class="table" width="100%">
 		<div class="tr"><div class="td left" width="33%"><%:Hostname%></div><div class="td left"><%=luci.sys.hostname() or "?"%></div></div>
 		<div class="tr"><div class="td left" width="33%"><%:Model%></div><div class="td left"><%=pcdata(boardinfo.model or "?")%></div></div>
-		<div class="tr"><div class="td left" width="33%"><%:Architecture%></div><div class="td left"><%=pcdata(boardinfo.system or "?")%></div></div>
+		<div class="tr"><div class="td left" width="33%"><%:Architecture%></div><div class="td left"><%=pcdata(boardinfo.system or "ARMv8 Processor rev4 (v8l)")%></div></div>
 		<div class="tr"><div class="td left" width="33%"><%:Firmware Version%></div><div class="td left">
 			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
 			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
@@ -379,6 +379,7 @@
 		<div class="tr"><div class="td left" width="33%"><%:Local Time%></div><div class="td left" id="localtime">-</div></div>
 		<div class="tr"><div class="td left" width="33%"><%:Uptime%></div><div class="td left" id="uptime">-</div></div>
 		<div class="tr"><div class="td left" width="33%"><%:Load Average%></div><div class="td left" id="loadavg">-</div></div>
+                <div class="tr"><div class="td left" width="33%"><%:CPU Temperature%></div><div class="td left"><%=luci.sys.exec("cut -c1-2 /sys/class/thermal/thermal_zone0/temp")%><%=" C"%></div></div>
 	</div>
 </div>
 
